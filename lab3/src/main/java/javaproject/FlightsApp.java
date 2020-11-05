@@ -1,2 +1,4 @@
-package javaproject;public class FlightsApp {
+package javaproject;
+
+public class FlightsApp {
 }
