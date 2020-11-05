@@ -10,6 +10,9 @@ public class FlightsApp {
         }
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
-        String 
+        String flights = args[0];
+        String airports = args[1];
+        String output = args[2];
+        
     }
 }
