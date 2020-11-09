@@ -7,7 +7,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
 public class FlightsApp {
-    private static String comma = ",";
+    private static final String comma = ",";
     private static Tuple2<Integer, String> makePairs(String line) {
         int commaIndex = line.indexOf()
     }
