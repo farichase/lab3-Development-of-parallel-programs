@@ -12,11 +12,15 @@ import java.util.Map;
 public class FlightsApp {
     private static final String COMMA = ",";
 
-    private static Tuple2<Integer, String> makePairs(String line) {
+    private static Tuple2<Integer, String> makeAirportPairs(String line) {
         int commaIndex = line.indexOf(COMMA);
         int airaceID = Integer.parseInt(line.substring(0, commaIndex));
         String airport = line.substring(commaIndex + 1);
         return new Tuple2<>(airaceID, airport);
+    }
+    private static Tuple2<Integer, Integer> makeFlightPairs(String line) {
+        
+        return new Tuple2<>();
     }
     public static void main(String[] args) {
         if (args.length != 3) {
@@ -30,12 +34,12 @@ public class FlightsApp {
         JavaRDD<String> flightsFile = sc.textFile(flights);
         JavaRDD<String> airportsFile = sc.textFile(airports);
         JavaPairRDD<Integer, String> airportsData = airportsFile
-                .mapToPair(line -> makePairs(line));
+                .mapToPair(line -> makeAirportPairs(line));
         Map<Integer, String> airportDataMap = airportsData.collectAsMap();
         final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(airportDataMap);
 
         JavaPairRDD<Integer, Integer> flightsData = flightsFile
-                .mapToPair(line -> )
+                .mapToPair(line -> makeFlightPairs(line));
         
     }
 }
