@@ -19,7 +19,9 @@ public class FlightsApp {
         return new Tuple2<>(airaceID, airport);
     }
     private static Tuple2<Integer, Integer> makeFlightPairs(String line) {
-        
+        String[] columns = line.split(COMMA);
+        int originAirportId = Integer.parseInt(columns[0]);
+        int destAirportId = Integer.parseInt(columns[1]);
         return new Tuple2<>();
     }
     public static void main(String[] args) {
