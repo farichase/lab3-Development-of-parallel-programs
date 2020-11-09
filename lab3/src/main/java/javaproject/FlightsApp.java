@@ -15,8 +15,7 @@ public class FlightsApp {
     private static final int DEST_AIRPORT_ID = 14;
     private static final int DELAY = 18;
     private static final int IS_CANCELLED = 19;
-    private static final String EMPTY_STRING = "";
-    private static final String ZERO_DELAY = "0.f";
+    private static final float ZERO_DELAY = 0.f;
 
     private static Tuple2<Integer, String> makeAirportPairs(String line) {
         int commaIndex = line.indexOf(COMMA);
@@ -28,9 +27,12 @@ public class FlightsApp {
         String[] columns = line.split(COMMA);
         int originAirportId = Integer.parseInt(columns[ORIGIN_AIRPORT_ID]);
         int destAirportId = Integer.parseInt(columns[DEST_AIRPORT_ID]);
-        if (columns[DELAY].equals(EMPTY_STRING)) columns[DELAY] = ZERO_DELAY;
-        float delay = Float.parseFloat(columns[DELAY]);
-        return new Tuple2<>();
+        float delay = columns[DELAY].isEmpty() ? ZERO_DELAY : Float.parseFloat(columns[DELAY]);
+        boolean isCancelled = columns[IS_CANCELLED];
+        return new Tuple2<>(
+                new Tuple2<>(originAirportId, destAirportId),
+                new AirportSerializable(originAirportId, destAirportId, delay, )
+        );
     }
     public static void main(String[] args) {
         if (args.length != 3) {
