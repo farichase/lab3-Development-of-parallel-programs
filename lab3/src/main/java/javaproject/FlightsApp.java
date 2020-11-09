@@ -12,7 +12,7 @@ public class FlightsApp {
     private static Tuple2<Integer, String> makePairs(String line) {
         int commaIndex = line.indexOf(COMMA);
         int airaceID = Integer.parseInt(line.substring(0, commaIndex));
-        
+        String airport = 
     }
     public static void main(String[] args) {
         if (args.length != 3) {
