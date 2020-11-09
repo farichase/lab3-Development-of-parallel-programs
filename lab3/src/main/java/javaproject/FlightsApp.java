@@ -50,7 +50,7 @@ public class FlightsApp {
         Map<Integer, String> airportDataMap = airportsData.collectAsMap();
         final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(airportDataMap);
 
-        JavaPairRDD<Integer, Integer> flightsData = flightsFile
+        JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsData = flightsFile
                 .mapToPair(line -> makeFlightPairs(line));
         
     }
