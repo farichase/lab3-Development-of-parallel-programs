@@ -6,6 +6,8 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
+import java.util.Map;
+
 public class FlightsApp {
     private static final String COMMA = ",";
 
@@ -28,6 +30,6 @@ public class FlightsApp {
         JavaRDD<String> airportsFile = sc.textFile(airports);
         JavaPairRDD<Integer, String> airportsNames = airportsFile
                 .mapToPair(line -> makePairs(line));
-        Map<Integer, String>
+        Map<Integer, String> 
     }
 }
