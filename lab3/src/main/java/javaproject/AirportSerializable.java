@@ -17,28 +17,28 @@ public class AirportSerializable implements Serializable {
         this.delayTime = delayTime;
         this.isCancelled = isCancelled;
     }
+    public void setOriginAirportId(int originAirportId) {
+        this.originAirportId = originAirportId;
+    }
     public void setDestAirportId(int destAirportId) {
         this.destAirportId = destAirportId;
+    }
+    public void setDelayTime(float delayTime) {
+        this.delayTime = delayTime;
     }
     public void setCancelled(boolean cancelled) {
         isCancelled = cancelled;
     }
-    public float getDelayTime() {
-        return delayTime;
+    public int getOriginAirportId() {
+        return originAirportId;
     }
     public int getDestAirportId() {
         return destAirportId;
     }
-    public int getOriginAirportId() {
-        return originAirportId;
-    }
-    public void setOriginAirportId(int originAirportId) {
-        this.originAirportId = originAirportId;
+    public float getDelayTime() {
+        return delayTime;
     }
     public boolean isCancelled() {
         return isCancelled;
-    }
-    public void setDelayTime(float delayTime) {
-        this.delayTime = delayTime;
     }
 }
