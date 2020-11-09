@@ -4,8 +4,10 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import scala.Tuple2;
 
 public class FlightsApp {
+    private static Tuple2<Integer, String> 
     public static void main(String[] args) {
         if (args.length != 3) {
             System.exit(-1);
@@ -18,9 +20,6 @@ public class FlightsApp {
         JavaRDD<String> flightsFile = sc.textFile(flights);
         JavaRDD<String> airportsFile = sc.textFile(airports);
         JavaPairRDD<Integer, String> airportsNames = airportsFile
-                .mapToPair(s -> {
-                            int 
-                        }
-                );
+                .mapToPair(makePairs);
     }
 }
