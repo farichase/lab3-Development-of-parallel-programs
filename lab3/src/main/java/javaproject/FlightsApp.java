@@ -23,7 +23,7 @@ public class FlightsApp {
         String airport = line.substring(commaIndex + 1);
         return new Tuple2<>(airaceID, airport);
     }
-    private static Tuple2<Integer, Integer> makeFlightPairs(String line) {
+    private static Tuple2<Tuple2<Integer, Integer>, AirportSerializable> makeFlightPairs(String line) {
         String[] columns = line.split(COMMA);
         int originAirportId = Integer.parseInt(columns[ORIGIN_AIRPORT_ID]);
         int destAirportId = Integer.parseInt(columns[DEST_AIRPORT_ID]);
@@ -31,7 +31,7 @@ public class FlightsApp {
         boolean isCancelled = columns[IS_CANCELLED].isEmpty();
         return new Tuple2<>(
                 new Tuple2<>(originAirportId, destAirportId),
-                new AirportSerializable(originAirportId, destAirportId, delay, )
+                new AirportSerializable(originAirportId, destAirportId, delay, isCancelled)
         );
     }
     public static void main(String[] args) {
