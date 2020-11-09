@@ -29,12 +29,13 @@ public class FlightsApp {
         String output = args[2];
         JavaRDD<String> flightsFile = sc.textFile(flights);
         JavaRDD<String> airportsFile = sc.textFile(airports);
-        JavaPairRDD<Integer, String> airportsNames = airportsFile
+        JavaPairRDD<Integer, String> airportsData = airportsFile
                 .mapToPair(line -> makePairs(line));
-        Map<Integer, String> airportDataMap = airportsNames.collectAsMap();
+        Map<Integer, String> airportDataMap = airportsData.collectAsMap();
         final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(airportDataMap);
 
-        JavaPairRDD<Integer, Integer> 
+        JavaPairRDD<Integer, Integer> flightsData = flightsFile
+                .mapToPair(line -> )
         
     }
 }
