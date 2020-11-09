@@ -11,6 +11,10 @@ import java.util.Map;
 
 public class FlightsApp {
     private static final String COMMA = ",";
+    private static final int ORIGIN_AIRPORT_ID = 11;
+    private static final int DEST_AIRPORT_ID = 14;
+    private static final int DELAY = 18;
+    private static final int IS_CANCELLED = 19;
 
     private static Tuple2<Integer, String> makeAirportPairs(String line) {
         int commaIndex = line.indexOf(COMMA);
@@ -20,8 +24,9 @@ public class FlightsApp {
     }
     private static Tuple2<Integer, Integer> makeFlightPairs(String line) {
         String[] columns = line.split(COMMA);
-        int originAirportId = Integer.parseInt(columns[0]);
-        int destAirportId = Integer.parseInt(columns[1]);
+        int originAirportId = Integer.parseInt(columns[ORIGIN_AIRPORT_ID]);
+        int destAirportId = Integer.parseInt(columns[DEST_AIRPORT_ID]);
+        float delay = Float.parseFloat(columns[DELAY])
         return new Tuple2<>();
     }
     public static void main(String[] args) {
