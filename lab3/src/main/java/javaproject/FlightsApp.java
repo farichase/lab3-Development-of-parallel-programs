@@ -7,7 +7,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
 public class FlightsApp {
-    private static Tuple2<Integer, String>
+    private static Tuple2<Integer, String> 
     public static void main(String[] args) {
         if (args.length != 3) {
             System.exit(-1);
