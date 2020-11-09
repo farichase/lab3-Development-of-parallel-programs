@@ -11,6 +11,9 @@ public class AirportSerializable implements Serializable {
 
     public AirportSerializable(){
     }
-    public AirportSerializable(){
+    public AirportSerializable(int originAirportId, int destAirportId, float delayTime, boolean isCancelled){
+        this.originAirportId = originAirportId;
+        this.destAirportId = destAirportId;
+        
     }
 }
