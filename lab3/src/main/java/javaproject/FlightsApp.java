@@ -13,7 +13,7 @@ public class FlightsApp {
         int commaIndex = line.indexOf(COMMA);
         int airaceID = Integer.parseInt(line.substring(0, commaIndex));
         String airport = line.substring(commaIndex + 1);
-        return 
+        return new Tuple2<>(airaceID, airport);
     }
     public static void main(String[] args) {
         if (args.length != 3) {
@@ -27,6 +27,6 @@ public class FlightsApp {
         JavaRDD<String> flightsFile = sc.textFile(flights);
         JavaRDD<String> airportsFile = sc.textFile(airports);
         JavaPairRDD<Integer, String> airportsNames = airportsFile
-                .mapToPair(makePairs);
+                .mapToPair(line -> makePairs(line));
     }
 }
