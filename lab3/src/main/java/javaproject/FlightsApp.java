@@ -28,7 +28,7 @@ public class FlightsApp {
         int originAirportId = Integer.parseInt(columns[ORIGIN_AIRPORT_ID]);
         int destAirportId = Integer.parseInt(columns[DEST_AIRPORT_ID]);
         float delay = columns[DELAY].isEmpty() ? ZERO_DELAY : Float.parseFloat(columns[DELAY]);
-        boolean isCancelled = columns[IS_CANCELLED];
+        boolean isCancelled = columns[IS_CANCELLED].isEmpty();
         return new Tuple2<>(
                 new Tuple2<>(originAirportId, destAirportId),
                 new AirportSerializable(originAirportId, destAirportId, delay, )
