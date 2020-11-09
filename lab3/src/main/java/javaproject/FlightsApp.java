@@ -28,6 +28,6 @@ public class FlightsApp {
         JavaRDD<String> airportsFile = sc.textFile(airports);
         JavaPairRDD<Integer, String> airportsNames = airportsFile
                 .mapToPair(line -> makePairs(line));
-        
+        Map<Integer, String>
     }
 }
