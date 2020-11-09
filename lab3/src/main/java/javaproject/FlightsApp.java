@@ -33,6 +33,8 @@ public class FlightsApp {
                 .mapToPair(line -> makePairs(line));
         Map<Integer, String> airportDataMap = airportsNames.collectAsMap();
         final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(airportDataMap);
+
+        JavaPairRDD<Integer, >
         
     }
 }
