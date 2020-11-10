@@ -55,9 +55,7 @@ public class FlightsApp {
 
         JavaPairRDD<Tuple2<Integer, Integer>, T> reducedFlights = flightsData
                 .combineByKey(
-                        item -> {
-                            
-                        }
+                        item -> new
                 )
 
     }
