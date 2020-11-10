@@ -7,7 +7,7 @@ public class FlightSerializable implements Serializable {
     private float maxDelay;
     private int delayFlights;
     private int cancelledFlights;
-
+    private static final float ZERO_DELAY = 0.f;
     public FlightSerializable(){
     }
     public FlightSerializable(float maxDelay, int delayFlights, int cancelledFlights){
@@ -33,11 +33,13 @@ public class FlightSerializable implements Serializable {
     public int getCancelledFlights() {
         return this.cancelledFlights;
     }
-    public FlightSerializable mergeFunction(FlightSerializable item1, FlightSerializable item2){
+    public FlightSerializable mergeFunction(FlightSerializable item1, AirportSerializable item2){
+        boolean isDelayed = false;
+        if (item2.getDelayTime() > ZERO_DELAY || item2.getIsCancelled()) isDelayed = !isDelayed;
         return new FlightSerializable(
-                item1.getMaxDelay() + item2.getMaxDelay(),
-                item1.getDelayFlights() + item2.getDelayFlights(),
-                item1.getCancelledFlights() + item2.getCancelledFlights()
+                Math.max(item1.getMaxDelay(), item2.getDelayTime()),
+                isDelayed ? item1.getDelayFlights() + 1 : item1.getDelayFlights(),
+                item1.
         );
     }
 }
