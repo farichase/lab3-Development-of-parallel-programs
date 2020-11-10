@@ -38,6 +38,10 @@ public class FlightsApp {
                 new AirportSerializable(originAirportId, destAirportId, delay, isCancelled)
         );
     }
+    private static JavaRDD<String> removeQuotes(JavaRDD<String> file) {
+        file = file.map(line -> line.replaceAll(QUOTES, EMPTY_STRING));
+        return file;
+    }
     private static final Function2 removeHeader = new Function2<Integer, Iterator<String>, Iterator<String>>() {
         @Override
         public Iterator<String> call(Integer ind, Iterator<String> iterator) throws Exception{
@@ -62,6 +66,8 @@ public class FlightsApp {
         JavaRDD<String> airportsFile = sc
                 .textFile(airports)
                 .mapPartitionsWithIndex(removeHeader, false);
+        flightsFile = removeQuotes(flightsFile);
+        airportsFile = removeQuotes(airportsFile);
         JavaPairRDD<Integer, String> airportsData = airportsFile
                 .mapToPair(line -> makeAirportPairs(line));
         Map<Integer, String> airportDataMap = airportsData.collectAsMap();
@@ -91,6 +97,5 @@ public class FlightsApp {
                         }
                 );
         result.saveAsTextFile("hdfs://localhost:9000/user/farida/output");
-
     }
 }
