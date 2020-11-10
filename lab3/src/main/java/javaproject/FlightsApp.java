@@ -73,7 +73,7 @@ public class FlightsApp {
                             return outputResult;
                         }
                 );
-        //("hdfs://localhost:9000/user/farida/output");
+        result.saveAsTextFile("hdfs://localhost:9000/user/farida/output");
 
     }
 }
