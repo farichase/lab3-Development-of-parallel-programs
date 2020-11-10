@@ -36,6 +36,12 @@ public class FlightsApp {
                 new AirportSerializable(originAirportId, destAirportId, delay, isCancelled)
         );
     }
+    private static JavaRDD<String> parseAirport(JavaRDD<String> airports) {
+        airports = airports
+                .filter(line -> !line.contains("Code"))
+                .map(line -> line.replaceAll(QUOTES, EMPTY_STRING));
+        return airports;
+    }
     public static void main(String[] args) {
         if (args.length != 3) {
             System.exit(-1);
@@ -47,6 +53,7 @@ public class FlightsApp {
         String output = args[2];
         JavaRDD<String> flightsFile = sc.textFile(flights);
         JavaRDD<String> airportsFile = sc.textFile(airports);
+        airportsFile = parseAirport(airportsFile);
 
         JavaPairRDD<Integer, String> airportsData = airportsFile
                 .mapToPair(line -> makeAirportPairs(line));
