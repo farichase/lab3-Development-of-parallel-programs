@@ -61,7 +61,12 @@ public class FlightsApp {
                         FlightSerializable::addValue,
                         FlightSerializable::add
                 );
-        
+        JavaRDD<String> result = reducedFlights
+                .map(
+                        item -> {
+                            Map<Integer, String>     
+                        }
+                );
 
     }
 }
