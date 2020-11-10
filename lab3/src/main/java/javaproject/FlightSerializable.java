@@ -1,2 +1,4 @@
-package javaproject;public class FlightSerializable {
+package javaproject;
+
+public class FlightSerializable {
 }
