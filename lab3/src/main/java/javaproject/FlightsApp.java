@@ -61,6 +61,7 @@ public class FlightsApp {
                         FlightSerializable::addValue,
                         FlightSerializable::add
                 );
+        
 
     }
 }
