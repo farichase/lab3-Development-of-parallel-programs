@@ -16,6 +16,8 @@ public class FlightsApp {
     private static final int DELAY_ID = 18;
     private static final int IS_CANCELLED_ID = 19;
     private static final float ZERO_DELAY = 0.f;
+    private static final String QUOTES = "\"";
+    private static final String EMPTY_STRING = "";
 
     private static Tuple2<Integer, String> makeAirportPairs(String line) {
         int commaIndex = line.indexOf(COMMA);
@@ -35,7 +37,9 @@ public class FlightsApp {
         );
     }
     private static JavaRDD<String> parseAirport(JavaRDD<String> airports) {
-        airports = airports.filter(line -> !line.contains("Code"));
+        airports = airports
+                .filter(line -> !line.contains("Code"))
+                .map(line -> line.replaceAll(QUOTES, EMPTY_STRING));
         return airports;
     }
     public static void main(String[] args) {
