@@ -67,9 +67,13 @@ public class FlightsApp {
                             Map<Integer, String> airportId = airportsBroadcasted.value();
                             Tuple2<Integer, Integer> key = item._1();
                             FlightSerializable value = item._2();
-                            
+                            String originAirport = airportId.get(key._1());
+                            String destAirport = airportId.get(key._2());
+                            String outputResult = originAirport + " " + destAirport;
+                            return outputResult;
                         }
                 );
+        output.("hdfs://localhost:9000/user/farida/output");
 
     }
 }
