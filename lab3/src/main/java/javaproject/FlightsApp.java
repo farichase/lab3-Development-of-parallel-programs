@@ -58,7 +58,8 @@ public class FlightsApp {
                         item -> new FlightSerializable(item.getDelayTime(),
                                 item.getDelayTime() > ZERO_DELAY ? 1 : 0,
                                 item.getIsCancelled() == 1.f ? 1 : 0),
-                        FlightSerializable::mergeFunction
+                        FlightSerializable::mergeFunction,
+                        FlightSerializable::mergeCombinersFunction
                 )
 
     }
