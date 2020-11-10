@@ -60,7 +60,7 @@ public class FlightsApp {
                                 item.getIsCancelled() == 1.f ? 1 : 0),
                         FlightSerializable::mergeFunction,
                         FlightSerializable::mergeCombinersFunction
-                )
+                );
 
     }
 }
