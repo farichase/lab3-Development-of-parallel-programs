@@ -64,7 +64,8 @@ public class FlightsApp {
         JavaRDD<String> result = reducedFlights
                 .map(
                         item -> {
-                            Map<Integer, String>     
+                            Map<Integer, String> airportId = airportsBroadcasted.value();
+                            
                         }
                 );
 
