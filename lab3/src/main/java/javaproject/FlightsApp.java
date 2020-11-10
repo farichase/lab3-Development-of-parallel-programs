@@ -53,7 +53,7 @@ public class FlightsApp {
         String output = args[2];
         JavaRDD<String> flightsFile = sc.textFile(flights);
         JavaRDD<String> airportsFile = sc.textFile(airports);
-        parseAirport(airportsFile);
+        airportsFile = parseAirport(airportsFile);
 
         JavaPairRDD<Integer, String> airportsData = airportsFile
                 .mapToPair(line -> makeAirportPairs(line));
