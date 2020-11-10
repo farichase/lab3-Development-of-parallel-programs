@@ -34,6 +34,10 @@ public class FlightSerializable implements Serializable {
         return this.cancelledFlights;
     }
     public FlightSerializable mergeFunction(FlightSerializable item1, FlightSerializable item2){
-
+        return new FlightSerializable(
+                item1.getMaxDelay() + item2.getMaxDelay(),
+                item1.getDelayFlights() + item2.getDelayFlights(),
+                item1.getCancelledFlights() + item2.getCancelledFlights()
+        );
     }
 }
