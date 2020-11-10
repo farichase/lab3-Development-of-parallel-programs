@@ -52,6 +52,8 @@ public class FlightsApp {
 
         JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsData = flightsFile
                 .mapToPair(line -> makeFlightPairs(line));
+
+        JavaPairRDD<Tuple2<Integer, Integer>, T> redu
         
     }
 }
