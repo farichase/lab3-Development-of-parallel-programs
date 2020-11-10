@@ -16,7 +16,7 @@ public class FlightsApp {
     private static final int DELAY_ID = 18;
     private static final int IS_CANCELLED_ID = 19;
     private static final float ZERO_DELAY = 0.f;
-    
+
     private static Tuple2<Integer, String> makeAirportPairs(String line) {
         int commaIndex = line.indexOf(COMMA);
         int airaceID = Integer.parseInt(line.substring(0, commaIndex));
