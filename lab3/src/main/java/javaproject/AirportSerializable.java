@@ -38,7 +38,7 @@ public class AirportSerializable implements Serializable {
     public float getDelayTime() {
         return delayTime;
     }
-    public boolean isCancelled() {
+    public boolean getIsCancelled() {
         return isCancelled;
     }
 }
