@@ -6,14 +6,15 @@ public class FlightSerializable implements Serializable {
 
     private float maxDelay;
     private int delayFlights;
-    private int cancelledFlights;
+    private int countOfFlights;
+
     private static final float ZERO_DELAY = 0.f;
     public FlightSerializable(){
     }
     public FlightSerializable(float maxDelay, int delayFlights, int cancelledFlights){
         this.maxDelay = maxDelay;
         this.delayFlights = delayFlights;
-        this.cancelledFlights = cancelledFlights;
+        this.countOfFlights = cancelledFlights;
     }
     public void setMaxDelay(int maxDelay) {
         this.maxDelay = maxDelay;
@@ -22,7 +23,7 @@ public class FlightSerializable implements Serializable {
         this.delayFlights = delayFlights;
     }
     public void setCancelledFlights(int cancelledFlights) {
-        this.cancelledFlights = cancelledFlights;
+        this.countOfFlights = cancelledFlights;
     }
     public float getMaxDelay() {
         return this.maxDelay;
@@ -31,7 +32,7 @@ public class FlightSerializable implements Serializable {
         return this.delayFlights;
     }
     public int getCancelledFlights() {
-        return this.cancelledFlights;
+        return this.countOfFlights;
     }
     public FlightSerializable mergeFunction(FlightSerializable item1, AirportSerializable item2){
         boolean isDelayed = false;
