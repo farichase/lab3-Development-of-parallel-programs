@@ -33,7 +33,7 @@ public class FlightSerializable implements Serializable {
     public int getCancelledFlights() {
         return this.cancelledFlights;
     }
-    public void mergeFunction(){
-        
+    public FlightSerializable mergeFunction(FlightSerializable item1, FlightSerializable item2){
+
     }
 }
