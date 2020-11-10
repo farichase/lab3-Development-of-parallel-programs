@@ -53,7 +53,7 @@ public class FlightsApp {
         JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsData = flightsFile
                 .mapToPair(line -> makeFlightPairs(line));
 
-        JavaPairRDD<Tuple2<Integer, Integer>, T> reducedFlights = flightsData
+        JavaPairRDD<Tuple2<Integer, Integer>, FlightSerializable> reducedFlights = flightsData
                 .combineByKey(
                         item -> new FlightSerializable()
                 )

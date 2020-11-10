@@ -1,4 +1,8 @@
 package javaproject;
 
-public class FlightSerializable {
+import java.io.Serializable;
+
+public class FlightSerializable implements Serializable {
+    public FlightSerializable(){
+    }
 }
