@@ -55,7 +55,8 @@ public class FlightsApp {
 
         JavaPairRDD<Tuple2<Integer, Integer>, FlightSerializable> reducedFlights = flightsData
                 .combineByKey(
-                        item -> new FlightSerializable(item.getDelayTime(),)
+                        item -> new FlightSerializable(item.getDelayTime(),
+                                )
                 )
 
     }
