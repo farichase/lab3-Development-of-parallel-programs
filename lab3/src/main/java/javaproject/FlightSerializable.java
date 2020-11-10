@@ -43,7 +43,11 @@ public class FlightSerializable implements Serializable {
                 item1.getCountOfFlights() + 1
         );
     }
-    public static FlightSerializable add () {
-        
+    public static FlightSerializable add (FlightSerializable item1, FlightSerializable item2) {
+        return new FlightSerializable(
+            item1.getMaxDelay() + item2.getMaxDelay(),
+            item1.getDelayFlights() + item2.getDelayFlights(),
+            item1.getCountOfFlights() + item2.getCountOfFlights()
+        );
     }
 }
