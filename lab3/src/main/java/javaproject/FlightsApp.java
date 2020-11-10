@@ -35,7 +35,7 @@ public class FlightsApp {
         );
     }
     private static JavaRDD<String> parseAirport(JavaRDD<String> airports) {
-        
+        airports = airports.filter()
     }
     public static void main(String[] args) {
         if (args.length != 3) {
