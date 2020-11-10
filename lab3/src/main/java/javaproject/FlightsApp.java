@@ -38,7 +38,7 @@ public class FlightsApp {
                 new AirportSerializable(originAirportId, destAirportId, delay, isCancelled)
         );
     }
-    Function2 removeHeader = new Function2<Integer, Iterator<String>, Iterator<String>>() {
+    private static final Function2 removeHeader = new Function2<Integer, Iterator<String>, Iterator<String>>() {
         @Override
         public Iterator<String> call(Integer ind, Iterator<String> iterator) throws Exception{
             if (ind==0 && iterator.hasNext()) {
@@ -59,9 +59,9 @@ public class FlightsApp {
         JavaRDD<String> flightsFile = sc
                 .textFile(flights)
                 .mapPartitionsWithIndex(removeHeader, false);
-        JavaRDD<String> airportsFile = sc.textFile(airports);
-
-
+        JavaRDD<String> airportsFile = sc
+                .textFile(airports)
+                .mapPartitionsWithIndex(removeHeader, false);
         JavaPairRDD<Integer, String> airportsData = airportsFile
                 .mapToPair(line -> makeAirportPairs(line));
         Map<Integer, String> airportDataMap = airportsData.collectAsMap();
