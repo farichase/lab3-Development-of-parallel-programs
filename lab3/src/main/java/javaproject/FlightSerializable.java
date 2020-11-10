@@ -43,4 +43,7 @@ public class FlightSerializable implements Serializable {
                 item1.getCountOfFlights() + 1
         );
     }
+    public static FlightSerializable add () {
+        
+    }
 }
