@@ -65,6 +65,8 @@ public class FlightsApp {
                 .map(
                         item -> {
                             Map<Integer, String> airportId = airportsBroadcasted.value();
+                            Tuple2<Integer, Integer> key = item._1();
+                            FlightSerializable value = item._2();
                             
                         }
                 );
