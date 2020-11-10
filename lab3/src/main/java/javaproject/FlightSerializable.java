@@ -4,13 +4,13 @@ import java.io.Serializable;
 
 public class FlightSerializable implements Serializable {
 
-    private int maxDelay;
+    private float maxDelay;
     private int delayFlights;
     private int cancelledFlights;
 
     public FlightSerializable(){
     }
-    public FlightSerializable(int maxDelay, int delayFlights, int cancelledFlights){
+    public FlightSerializable(float maxDelay, int delayFlights, int cancelledFlights){
         this.maxDelay = maxDelay;
         this.delayFlights = delayFlights;
         this.cancelledFlights = cancelledFlights;
@@ -24,7 +24,7 @@ public class FlightSerializable implements Serializable {
     public void setCancelledFlights(int cancelledFlights) {
         this.cancelledFlights = cancelledFlights;
     }
-    public int getMaxDelay() {
+    public float getMaxDelay() {
         return this.maxDelay;
     }
     public int getDelayFlights() {
@@ -32,5 +32,8 @@ public class FlightSerializable implements Serializable {
     }
     public int getCancelledFlights() {
         return this.cancelledFlights;
+    }
+    public void mergeFunction(){
+        
     }
 }
