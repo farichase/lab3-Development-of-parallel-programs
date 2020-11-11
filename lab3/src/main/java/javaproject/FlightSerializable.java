@@ -12,16 +12,20 @@ public class FlightSerializable implements Serializable {
     private static final float ZERO_DELAY = 0.f;
     public FlightSerializable(){
     }
-    public FlightSerializable(float maxDelay, int delayFlights, int cancelledFlights){
+    public FlightSerializable(float maxDelay, int delayFlights, int cancelledFlights, int countOfFlights){
         this.maxDelay = maxDelay;
         this.delayFlights = delayFlights;
-        this.countOfFlights = cancelledFlights;
+        this.cancelledFlights = cancelledFlights;
+        this.countOfFlights = countOfFlights;
     }
     public void setMaxDelay(int maxDelay) {
         this.maxDelay = maxDelay;
     }
     public void setDelayFlights(int delayFlights) {
         this.delayFlights = delayFlights;
+    }
+    public void setCancelledFlights(int cancelledFlights) {
+        this.cancelledFlights = cancelledFlights;
     }
     public void setCountOfFlights(int countOfFlights) {
         this.countOfFlights = countOfFlights;
@@ -31,6 +35,9 @@ public class FlightSerializable implements Serializable {
     }
     public int getDelayFlights() {
         return this.delayFlights;
+    }
+    public int getCancelledFlights() {
+        return this.cancelledFlights;
     }
     public int getCountOfFlights() {
         return this.countOfFlights;
@@ -48,6 +55,7 @@ public class FlightSerializable implements Serializable {
         return new FlightSerializable(
             item1.getMaxDelay() + item2.getMaxDelay(),
             item1.getDelayFlights() + item2.getDelayFlights(),
+            item1.getCancelledFlights() + item2.getCancelledFlights(),
             item1.getCountOfFlights() + item2.getCountOfFlights()
         );
     }
