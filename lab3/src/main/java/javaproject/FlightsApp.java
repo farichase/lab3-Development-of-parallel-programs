@@ -92,7 +92,7 @@ public class FlightsApp {
                             FlightSerializable value = item._2();
                             String originAirport = airportId.get(key._1());
                             String destAirport = airportId.get(key._2());
-                            String outputResult = originAirport + " " + destAirport;
+                            String outputResult = originAirport + " " + destAirport + value + "\n";
                             return outputResult;
                         }
                 );
