@@ -80,7 +80,8 @@ public class FlightsApp {
                 .combineByKey(
                         item -> new FlightSerializable(item.getDelayTime(),
                                 item.getDelayTime() > ZERO_DELAY ? 1 : 0,
-                                item.getIsCancelled() ? 1 : 0),
+                                item.getIsCancelled() ? 1 : 0,
+                                1),
                         FlightSerializable::addValue,
                         FlightSerializable::add
                 );

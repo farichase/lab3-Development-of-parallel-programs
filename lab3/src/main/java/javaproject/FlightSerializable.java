@@ -44,10 +44,12 @@ public class FlightSerializable implements Serializable {
     }
     public static FlightSerializable addValue(FlightSerializable item1, AirportSerializable item2){
         boolean isDelayed = false;
+        boolean isCancelled = item2.getIsCancelled();
         if (item2.getDelayTime() > ZERO_DELAY || item2.getIsCancelled()) isDelayed = !isDelayed;
         return new FlightSerializable(
                 Math.max(item1.getMaxDelay(), item2.getDelayTime()),
                 isDelayed ? item1.getDelayFlights() + 1 : item1.getDelayFlights(),
+                isCancelled ? item1.getCancelledFlights() + 1 : item1.getCancelledFlights(),
                 item1.getCountOfFlights() + 1
         );
     }
