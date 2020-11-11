@@ -89,11 +89,11 @@ public class FlightsApp {
                         item -> {
                             Map<Integer, String> airportId = airportsBroadcasted.value();
                             Tuple2<Integer, Integer> key = item._1();
-                            FlightSerializable value = item._2();
+                            float maxDelay = item._2().getMaxDelay();
                             String originAirport = airportId.get(key._1());
                             String destAirport = airportId.get(key._2());
                             String outputResult = originAirport + " -> " + destAirport +
-                                    " maxDelay: " + value + "\n";
+                                    " maxDelay: " + maxDelay + "\n";
                             return outputResult;
                         }
                 );
