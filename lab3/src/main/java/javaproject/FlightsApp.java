@@ -92,12 +92,13 @@ public class FlightsApp {
                             Tuple2<Integer, Integer> key = item._1();
                             float maxDelay = item._2().getMaxDelay();
                             int delayFlights = item._2.getDelayFlights();
+                            int cancelledFlights  = item._2.getCancelledFlights();
                             int countOfFlights = item._2.getCountOfFlights();
                             String originAirport = airportId.get(key._1());
                             String destAirport = airportId.get(key._2());
                             String outputResult = originAirport + " -> " + destAirport +
                                     " maxDelay: " + maxDelay + "\n" + "percentage of late + canceled flights: "
-                                    + delayFlights +" "+  countOfFlights;
+                                    + (delayFlights + cancelledFlights) / countOfFlights;
                             return outputResult;
                         }
                 );
