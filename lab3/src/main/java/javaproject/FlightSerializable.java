@@ -6,6 +6,7 @@ public class FlightSerializable implements Serializable {
 
     private float maxDelay;
     private int delayFlights;
+    private int cancelledFlights;
     private int countOfFlights;
 
     private static final float ZERO_DELAY = 0.f;
