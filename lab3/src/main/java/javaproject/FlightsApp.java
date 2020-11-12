@@ -96,7 +96,7 @@ public class FlightsApp {
                             String originAirport = airportId.get(key._1());
                             String destAirport = airportId.get(key._2());
                             String outputResult = originAirport + " -> " + destAirport +
-                                    " maxDelay: " + maxDelay + "\n" + "percentage of late + canceled flights: "
+                                    "\n maxDelay: " + maxDelay + "\n" + "percentage of late + canceled flights: "
                                     + (delayFlights + cancelledFlights) / countOfFlights * 100 + "\n";
                             return outputResult;
                         }
