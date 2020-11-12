@@ -61,7 +61,7 @@ public class FlightsApp {
         String airports = args[1];
         JavaRDD<String> flightsFile = sc
                 .textFile(flights)
-                .mapPartitionsWithIndex(removeHeader, false);
+                .map(s -> removeHeader(s));
         JavaRDD<String> airportsFile = sc
                 .textFile(airports)
                 .mapPartitionsWithIndex(removeHeader, false);
