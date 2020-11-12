@@ -20,6 +20,7 @@ public class FlightsApp {
     private static final float ZERO_DELAY = 0.f;
     private static final String QUOTES = "\"";
     private static final String EMPTY_STRING = "";
+    private static final int FIRST_INDEX 0;
 
     private static Tuple2<Integer, String> makeAirportPairs(String line) {
         int commaIndex = line.indexOf(COMMA);
