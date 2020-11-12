@@ -42,7 +42,7 @@ public class FlightsApp {
         file = file.map(line -> line.replaceAll(QUOTES, EMPTY_STRING));
         return file;
     }
-    private static final Function2 removeHeader = new Function2<Integer, Iterator<String>, Iterator<String>>() {
+    /*private static final Function2 removeHeader = new Function2<Integer, Iterator<String>, Iterator<String>>() {
         @Override
         public Iterator<String> call(Integer ind, Iterator<String> iterator) throws Exception{
             if (ind==0 && iterator.hasNext()) {
@@ -50,7 +50,11 @@ public class FlightsApp {
                 return iterator;
             } else return iterator;
         }
-    };
+    };*/
+    private static boolean removeHeader(String s) {
+        if
+        return false;
+    } 
     public static void main(String[] args) {
         if (args.length != 3) {
             System.exit(-1);
@@ -61,10 +65,10 @@ public class FlightsApp {
         String airports = args[1];
         JavaRDD<String> flightsFile = sc
                 .textFile(flights)
-                .map(s -> removeHeader(s));
+                .filter(s -> removeHeader(s));
         JavaRDD<String> airportsFile = sc
                 .textFile(airports)
-                .mapPartitionsWithIndex(removeHeader, false);
+                .filter(s -> removeHeader(s));
         flightsFile = removeQuotes(flightsFile);
         airportsFile = removeQuotes(airportsFile);
         JavaPairRDD<Integer, String> airportsData = airportsFile
