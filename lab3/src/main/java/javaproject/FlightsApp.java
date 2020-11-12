@@ -42,7 +42,7 @@ public class FlightsApp {
         file = file.map(line -> line.replaceAll(QUOTES, EMPTY_STRING));
         return file;
     }
-    /*private static final Function2 removeHeader = new Function2<Integer, Iterator<String>, Iterator<String>>() {
+    private static final Function2 removeHeader = new Function2<Integer, Iterator<String>, Iterator<String>>() {
         @Override
         public Iterator<String> call(Integer ind, Iterator<String> iterator) throws Exception{
             if (ind==0 && iterator.hasNext()) {
@@ -50,11 +50,7 @@ public class FlightsApp {
                 return iterator;
             } else return iterator;
         }
-    };*/
-    private static boolean removeHeader(String s) {
-        if
-        return false;
-    } 
+    };
     public static void main(String[] args) {
         if (args.length != 3) {
             System.exit(-1);
@@ -65,10 +61,10 @@ public class FlightsApp {
         String airports = args[1];
         JavaRDD<String> flightsFile = sc
                 .textFile(flights)
-                .filter(s -> removeHeader(s));
+                .mapPartitionsWithIndex(removeHeader, false);
         JavaRDD<String> airportsFile = sc
                 .textFile(airports)
-                .filter(s -> removeHeader(s));
+                .mapPartitionsWithIndex(removeHeader, false);
         flightsFile = removeQuotes(flightsFile);
         airportsFile = removeQuotes(airportsFile);
         JavaPairRDD<Integer, String> airportsData = airportsFile
@@ -83,7 +79,7 @@ public class FlightsApp {
                 .combineByKey(
                         item -> new FlightSerializable(item.getDelayTime(),
                                 item.getDelayTime() > ZERO_DELAY ? 1 : 0,
-                                item.getIsCancelled() ? 1 : 0,
+                                item.isCancelled() ? 1 : 0,
                                 1),
                         FlightSerializable::addValue,
                         FlightSerializable::add
