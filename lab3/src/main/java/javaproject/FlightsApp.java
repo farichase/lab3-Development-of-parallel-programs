@@ -21,10 +21,11 @@ public class FlightsApp {
     private static final String QUOTES = "\"";
     private static final String EMPTY_STRING = "";
     private static final int FIRST_INDEX = 0;
+    private static final int ONE_FLIGHT = 1;
 
     private static Tuple2<Integer, String> makeAirportPairs(String line) {
         int commaIndex = line.indexOf(COMMA);
-        int airaceID = Integer.parseInt(line.substring(0, commaIndex));
+        int airaceID = Integer.parseInt(line.substring(FIRST_INDEX, commaIndex));
         String airport = line.substring(commaIndex + 1);
         return new Tuple2<>(airaceID, airport);
     }
@@ -46,7 +47,7 @@ public class FlightsApp {
     private static final Function2 removeHeader = new Function2<Integer, Iterator<String>, Iterator<String>>() {
         @Override
         public Iterator<String> call(Integer ind, Iterator<String> iterator) throws Exception{
-            if (ind==0 && iterator.hasNext()) {
+            if (ind==FIRST_INDEX && iterator.hasNext()) {
                 iterator.next();
                 return iterator;
             } else return iterator;
@@ -81,7 +82,7 @@ public class FlightsApp {
                         item -> new FlightSerializable(item.getDelayTime(),
                                 item.getDelayTime() > ZERO_DELAY ? 1 : 0,
                                 item.isCancelled() ? 1 : 0,
-                                1),
+                                ONE_FLIGHT),
                         FlightSerializable::addValue,
                         FlightSerializable::add
                 );
