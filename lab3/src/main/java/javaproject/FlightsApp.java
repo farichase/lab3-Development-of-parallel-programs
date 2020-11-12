@@ -59,7 +59,6 @@ public class FlightsApp {
         JavaSparkContext sc = new JavaSparkContext(conf);
         String flights = args[0];
         String airports = args[1];
-        String output = args[2];
         JavaRDD<String> flightsFile = sc
                 .textFile(flights)
                 .mapPartitionsWithIndex(removeHeader, false);
@@ -91,9 +90,9 @@ public class FlightsApp {
                             Map<Integer, String> airportId = airportsBroadcasted.value();
                             Tuple2<Integer, Integer> key = item._1();
                             float maxDelay = item._2().getMaxDelay();
-                            float delayFlights = (float)item._2.getDelayFlights();
-                            float cancelledFlights  = (float)item._2.getCancelledFlights();
-                            float countOfFlights = (float)item._2.getCountOfFlights();
+                            float delayFlights = item._2.getDelayFlights();
+                            float cancelledFlights  = item._2.getCancelledFlights();
+                            float countOfFlights = item._2.getCountOfFlights();
                             String originAirport = airportId.get(key._1());
                             String destAirport = airportId.get(key._2());
                             String outputResult = originAirport + " -> " + destAirport +

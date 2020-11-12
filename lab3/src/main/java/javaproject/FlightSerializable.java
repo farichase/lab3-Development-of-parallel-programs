@@ -5,41 +5,41 @@ import java.io.Serializable;
 public class FlightSerializable implements Serializable {
 
     private float maxDelay;
-    private int delayFlights;
-    private int cancelledFlights;
-    private int countOfFlights;
+    private float delayFlights;
+    private float cancelledFlights;
+    private float countOfFlights;
 
     private static final float ZERO_DELAY = 0.f;
     public FlightSerializable(){
     }
-    public FlightSerializable(float maxDelay, int delayFlights, int cancelledFlights, int countOfFlights){
+    public FlightSerializable(float maxDelay, float delayFlights, float cancelledFlights, float countOfFlights){
         this.maxDelay = maxDelay;
         this.delayFlights = delayFlights;
         this.cancelledFlights = cancelledFlights;
         this.countOfFlights = countOfFlights;
     }
-    public void setMaxDelay(int maxDelay) {
+    public void setMaxDelay(float maxDelay) {
         this.maxDelay = maxDelay;
     }
-    public void setDelayFlights(int delayFlights) {
+    public void setDelayFlights(float delayFlights) {
         this.delayFlights = delayFlights;
     }
-    public void setCancelledFlights(int cancelledFlights) {
+    public void setCancelledFlights(float cancelledFlights) {
         this.cancelledFlights = cancelledFlights;
     }
-    public void setCountOfFlights(int countOfFlights) {
+    public void setCountOfFlights(float countOfFlights) {
         this.countOfFlights = countOfFlights;
     }
     public float getMaxDelay() {
         return this.maxDelay;
     }
-    public int getDelayFlights() {
+    public float getDelayFlights() {
         return this.delayFlights;
     }
-    public int getCancelledFlights() {
+    public float getCancelledFlights() {
         return this.cancelledFlights;
     }
-    public int getCountOfFlights() {
+    public float getCountOfFlights() {
         return this.countOfFlights;
     }
     public static FlightSerializable addValue(FlightSerializable item1, AirportSerializable item2){
