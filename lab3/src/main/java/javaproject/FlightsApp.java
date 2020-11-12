@@ -53,6 +53,9 @@ public class FlightsApp {
             } else return iterator;
         }
     };
+    private static float returnPercentage(float part, float whole) {
+        return part / whole * 100;
+    }
     public static void main(String[] args) {
         if (args.length != 3) {
             System.exit(-1);
@@ -99,7 +102,7 @@ public class FlightsApp {
                             String destAirport = airportId.get(key._2());
                             String outputResult = originAirport + " -> " + destAirport +
                                     "\n maxDelay: " + maxDelay + "\n" + "percentage of late + canceled flights: "
-                                    + (delayFlights + cancelledFlights) / countOfFlights * 100 + "\n";
+                                    + returnPercentage(delayFlights + cancelledFlights, countOfFlights) + "\n";
                             return outputResult;
                         }
                 );
